@@ -68,3 +68,40 @@ Everything is grouped by topic to ease the search for a specific use-case.
   - `<esc> + <U>`: undo.
   - `<esc> + <E>`: redo.
 
+
+
+## Adminsys
+
+### Miscalenious
+
+#### Full chroot from usb
+
+In order to mount a *partition* or *image* 
+
+```sh
+mount <partition or image> /mnt
+mount --bind /dev /mnt/dev
+mount -t proc /proc /mnt/proc
+mount --bind /run /mnt/run
+mount -t sysfs /sys /mnt/sys
+```
+
+
+### Networking
+
+## RedHat based distros
+
+- In RHEL linux distributions, the network configuration uses a different
+  approach from Debian linux. The network confif files are located at
+  `/etc/sysconfig/network-scripts/ifcfg-<NAME>`. Each entry in this file
+  represents a network interface. Here is an exemple of a basic static config:
+  ```
+  DEVICE=eth0
+  BOOTPROTO=none
+  ONBOOT=yes
+  NETMASK=255.255.255.0
+  IPADDR=10.0.1.27
+  USERCTL=no
+  ```
+  Further information about this file can be found in [the fedora doc](https://docs.fedoraproject.org/en-US/Fedora/14/html/Deployment_Guide/s1-networkscripts-interfaces.html).
+
